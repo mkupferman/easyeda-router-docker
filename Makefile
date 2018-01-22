@@ -13,4 +13,4 @@ shell:
 	docker-compose run --rm --service-ports $(IMAGENAME)-shell
 
 clean:
-	docker-compose down -rmi all --volumes
+	docker-compose down --rmi all --volumes
