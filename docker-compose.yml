@@ -1,0 +1,26 @@
+version: "3"
+services:
+  easyeda-router-shell:
+    image: easyeda-router
+    command: ["bash"]
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    networks:
+      - easyeda-router
+    ports:
+      - "3579:3579"
+  easyeda-router:
+    image: easyeda-router
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "3579:3579"
+    networks:
+      - easyeda-router
+
+networks:
+  easyeda-router:
